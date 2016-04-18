@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DigitalTelegraph</string>
+    <string name="sendNewText">Enviar nova mensagem</string>
+    <string name="sendNewTitle">Sua mensagem:</string>
+    <string name="addChar">Adiconar Caractér</string>
+    <string name="send">Enviar mensagem</string>
+    <string name="addCharTitle">Adicionar Caractér</string>
+    <string name="addCharDesc">Use um toque rápido para inserir um ponto (.) e um toque longo para inserir um traço (-)</string>
+</resources>
