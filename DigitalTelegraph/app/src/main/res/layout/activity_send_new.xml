@@ -17,21 +17,31 @@
 
     <EditText android:id="@+id/message"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="150dp"
         android:background="@color/messageBG"
         android:focusable="false"
         android:layout_below="@id/sendNewTitle"/>
 
-    <Button android:id="@+id/addChar"
+    <TextView android:id="@+id/sendNewSignalTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/addChar"
-        android:layout_below="@id/message"/>
+        android:text="@string/sendNewSignalTitle"
+        android:textSize="16pt"
+        android:layout_below="@id/message"
+        android:layout_marginTop="10dp"/>
+
+    <EditText android:id="@+id/signalInput"
+        android:layout_width="150dp"
+        android:layout_height="400dp"
+        android:background="@color/signalInputBG"
+        android:layout_below="@id/sendNewSignalTitle"
+        android:focusable="false"
+        android:layout_centerHorizontal="true"/>
 
     <Button android:id="@+id/send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/send"
-        android:layout_below="@id/addChar"/>
+        android:layout_below="@id/signalInput"/>
 
 </RelativeLayout>

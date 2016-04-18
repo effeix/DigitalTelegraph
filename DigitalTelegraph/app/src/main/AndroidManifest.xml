@@ -16,7 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SendNewActivity" />
-        <activity android:name=".AddCharActivity"></activity>
     </application>
 
 </manifest>
