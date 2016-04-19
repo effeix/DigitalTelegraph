@@ -28,11 +28,11 @@
         android:text="@string/sendNewSignalTitle"
         android:textSize="16pt"
         android:layout_below="@id/message"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="50dp"/>
 
     <EditText android:id="@+id/signalInput"
-        android:layout_width="150dp"
-        android:layout_height="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
         android:background="@color/signalInputBG"
         android:layout_below="@id/sendNewSignalTitle"
         android:focusable="false"
@@ -40,8 +40,8 @@
 
     <Button android:id="@+id/send"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:text="@string/send"
-        android:layout_below="@id/signalInput"/>
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
