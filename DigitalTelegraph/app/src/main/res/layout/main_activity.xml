@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.edu.insper.digitaltelegraph.MainActivity"
+    android:orientation="vertical">
+
+    <TextView android:id="@+id/labelMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/labelMessage"
+        android:textSize="16pt"/>
+
+    <EditText android:id="@id/userMessageField"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/userMessageFieldBG"
+        android:focusable="false"
+        android:textColor="@color/userMessageFieldTextColor"
+        android:padding="10dp"
+        android:scrollHorizontally="false"
+        android:cursorVisible="true"/>
+
+    <TextView android:id="@id/currentLetter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/currentLetter"
+        android:textAlignment="center"
+        android:textSize="12pt"/>
+
+    <TextView android:id="@id/labelEnterSignalHere"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/labelEnterSignalHere"
+        android:textSize="12pt"
+        android:layout_marginTop="50dp"/>
+
+<LinearLayout android:id="@id/confirmButtons"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Button android:id="@id/confirmLetter"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="0.4"
+        android:text="@string/confirmLetter" />
+
+    <Button android:id="@id/backspace"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="0.2"
+        android:text="@string/backspace"/>
+
+    <Button android:id="@id/confirmWord"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="0.4"
+        android:text="@string/confirmWord"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText android:id="@id/touchBlockerLeft"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="0.3"
+        android:focusable="false"
+        android:background="@color/userInputFieldBG"/>
+
+    <EditText android:id="@id/userInputField"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@color/userInputFieldBG"
+        android:focusable="false"
+        android:text="@string/touchHere"
+        android:textAlignment="center"
+        android:textColor="@color/touchHere"
+        android:layout_weight="0.3"/>
+
+    <EditText android:id="@id/touchBlockerRight"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="0.3"
+        android:focusable="false"
+        android:background="@color/userInputFieldBG"/>
+
+</LinearLayout>
+
+    <Button android:id="@id/sendMessage"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/sendMessage"/>
+
+    <EditText android:id="@id/touchBlocker"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:focusable="false"
+        android:layout_centerHorizontal="true" />
+
+</LinearLayout>

@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">DigitalTelegraph</string>
-    <string name="sendNewText">Enviar nova mensagem</string>
-    <string name="sendNewTitle">Sua mensagem:</string>
-    <string name="send">Enviar mensagem</string>
-    <string name="sendNewSignalTitle">Enviar sinal (ponto ou traço):</string>
+    <string name="appName">Digital Telegraph</string>
+    <string name="labelMessage">Your message:</string>
+    <string name="labelEnterSignalHere">Send signal (Tap: send DOT // Hold: send DASH):</string>
+    <string name="confirmLetter">Confirm Letter</string>
+    <string name="confirmWord">Confirm Word</string>
+    <string name="touchHere">TOUCH HERE</string>
+    <string name="sendMessage">Send Message</string>
+    <string name="currentLetter">Current Letter:    </string>
+    <string name="backspace">Erase</string>
 </resources>

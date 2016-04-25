@@ -3,7 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="messageBG">#82C5D8</color>
+    <color name="userMessageFieldBG">#82C5D8</color>
     <color name="sendNewBG">#08DB3D</color>
-    <color name="signalInputBG">#D87008</color>
+    <color name="userInputFieldBG">#08c0d8</color>
+    <color name="touchHere">#FFFFFF</color>
+    <color name="ignoreTouchBG">#ffea00</color>
+    <color name="userMessageFieldTextColor">#FFFFFF</color>
 </resources>

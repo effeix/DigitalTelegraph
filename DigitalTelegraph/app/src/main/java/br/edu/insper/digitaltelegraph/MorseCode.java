@@ -1,11 +1,12 @@
 package br.edu.insper.digitaltelegraph;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class MorseCode {
 
-    private Map<String, String> alphanumToMorse;
-    private Map<String, String> morseToAlphanum;
+    private Map<String, String> alphanumToMorse = new HashMap<>();
+    private Map<String, String> morseToAlphanum = new HashMap<>();
 
     public MorseCode() {
         alphanumToMorse.put("E",".");
