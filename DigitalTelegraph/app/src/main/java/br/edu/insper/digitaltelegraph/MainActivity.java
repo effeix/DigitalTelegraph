@@ -1,8 +1,10 @@
 package br.edu.insper.digitaltelegraph;
 
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -11,14 +13,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     //Instance of MorseCode to access conversion dictionaries
     MorseCode morsecode = new MorseCode();
 
-    //List to store user inputs of dots and dashes
-    ArrayList<String> userInput = new ArrayList<>();
+    //Create BinaryTree
+    public BinaryTree bt = new BinaryTree();
+    public Node[] tree = bt.getBinaryTree();
+    public Node userDesiredLetter = null;
+    public Node currentNode = tree[0];
+
+    //Counter to check how many times user clicked
+    public int clickCounter = 0;
 
     //Visual components by order of appearance
     TextView labelMessage;
@@ -36,6 +45,25 @@ public class MainActivity extends AppCompatActivity {
 
     //Toast for user action feedback
     Toast toast;
+
+
+    //Timer to keep track of interval between signals
+    public CountDownTimer countdown = new CountDownTimer(1500, 1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+            //Do nothing because there is only one tick
+        }
+
+        @Override
+        public void onFinish() {
+            String letter = userDesiredLetter.getLetter();
+            Log.d("PRINTED_LETTER", letter);
+            clickCounter = 0;
+            currentNode = tree[0];
+            EditText msgField = userMessageField;
+            msgField.setText(msgField.getText() + letter);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,71 +100,51 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         //Click listeners for the signal sending area
         userInputField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(clickCounter == 0) {
+                    countdown.start();
+                    clickCounter++;
+                    currentNode = currentNode.getLeftChild();
+                } else if(clickCounter >= 1){
+                    countdown.cancel();
+                    countdown.start();
+                    if(currentNode.hasChildTree("left")) {
+                        currentNode = currentNode.getLeftChild();
+                    }
+                }
+
+                userDesiredLetter = currentNode;
+
                 MainActivity.this.confirmLetter.setEnabled(true);
                 MainActivity.this.confirmWord.setEnabled(true);
-
-                String dot = ".";
-                userInput.add(dot);
-                TextView cLetter = MainActivity.this.currentLetter;
-                cLetter.append(dot);
-                //String userInputJoined = TextUtils.join("", userInput);
-                //userInput.clear();
-                //String letter = morsecode.getLetterFromMorseCode(userInputJoined);
-                //EditText msgField = SendNewActivity.this.message;
-                //msgField.setText(msgField.getText()+letter);
             }
         });
-
+//
         userInputField.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                if(clickCounter == 0) {
+                    countdown.start();
+                    clickCounter++;
+                    currentNode = currentNode.getRightChild();
+                } else if(clickCounter >= 1){
+                    countdown.cancel();
+                    countdown.start();
+                    if(currentNode.hasChildTree("right")) {
+                        currentNode = currentNode.getRightChild();
+                    }
+                }
+
+                userDesiredLetter = currentNode;
+
                 MainActivity.this.confirmLetter.setEnabled(true);
                 MainActivity.this.confirmWord.setEnabled(true);
-
-                String dash = "-";
-                userInput.add(dash);
-                TextView cLetter = MainActivity.this.currentLetter;
-                cLetter.append(dash);
                 return true;
-            }
-        });
-
-
-
-
-        //Click listeners for the confirm buttons
-        confirmLetter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                MainActivity.this.sendMessage.setEnabled(true);
-
-                if(userInput.isEmpty()) {
-                    Toast toast = MainActivity.this.toast;
-                    toast.setText("Please insert a letter!");
-                    toast.show();
-                    return;
-                }
-
-                String userInputJoined = TextUtils.join("", userInput);
-                userInput.clear();
-                String letter = morsecode.getLetterFromMorseCode(userInputJoined);
-
-                if(letter == null) {
-                    Toast toast = MainActivity.this.toast;
-                    toast.setText("This character does not exist!");
-                    toast.show();
-                    return;
-                }
-
-                EditText msgField = MainActivity.this.userMessageField;
-                msgField.append(letter);
-                TextView cLetter = MainActivity.this.currentLetter;
-                cLetter.setText("Current Letter:   ");
             }
         });
 
@@ -144,8 +152,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText msgField = MainActivity.this.userMessageField;
-                userInput.clear();
-                currentLetter.setText("Current Letter:   ");
 
                 int length = msgField.getText().length();
                 if (length > 0) {
@@ -162,22 +168,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        confirmWord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText msgField = MainActivity.this.userMessageField;
-                int length = msgField.getText().length();
-                if (length == 0) {
-                    return;
-                }
-                String spacing = " ";
-                msgField.append(spacing);
-            }
-        });
-
-
-
-
     }
 }

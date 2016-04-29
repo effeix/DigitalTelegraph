@@ -11,4 +11,11 @@ public class Root {
         return this.letter;
     }
 
+    public boolean hasLetter() {
+        if(this.getLetter() != null) {
+            return true;
+        }
+        return false;
+    }
+
 }
