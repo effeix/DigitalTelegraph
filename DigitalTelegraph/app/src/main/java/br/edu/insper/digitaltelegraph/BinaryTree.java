@@ -2,6 +2,11 @@ package br.edu.insper.digitaltelegraph;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class BinaryTree {
 
     private final static int NUM_TREES = 40;
@@ -63,10 +68,24 @@ public class BinaryTree {
         return this.nodes;
     }
 
-    public void printBT() {
-        for(Node n: this.nodes) {
-            Log.d("LEFT_CHILD",n.getLeftChild().getLetter());
-            Log.d("RIGHT_CHILD",n.getRightChild().getLetter());
+    public List<String> BFS() {
+        List<String> characters = new ArrayList<>();
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(nodes[0]);
+
+        while(!queue.isEmpty()) {
+            Node node = (Node) queue.remove();
+            characters.add(node.getLetter());
+
+            if(node.hasChildTree("left")) {
+                queue.add(node.getLeftChild());
+            }
+
+            if(node.hasChildTree("right")) {
+                queue.add(node.getRightChild());
+            }
         }
+
+        return characters;
     }
 }

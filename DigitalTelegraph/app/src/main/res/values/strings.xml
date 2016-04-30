@@ -1,11 +1,12 @@
 <resources>
     <string name="appName">Digital Telegraph</string>
-    <string name="labelMessage">Your message:</string>
+    <string name="labelYourMessage">Your message:</string>
     <string name="labelEnterSignalHere">Send signal (Tap: send DOT // Hold: send DASH):</string>
-    <string name="confirmLetter">Confirm Letter</string>
-    <string name="confirmWord">Confirm Word</string>
     <string name="touchHere">TOUCH HERE</string>
     <string name="sendMessage">Send Message</string>
     <string name="currentLetter">Current Letter:    </string>
     <string name="backspace">Erase</string>
+    <string name="contacts">Contacts</string>
+    <string name="userInputField">TAP HERE</string>
+    <string name="dictionary">Dictionary</string>
 </resources>

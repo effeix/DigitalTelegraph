@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="labelMessage" type="id" />
+    <item name="labelYourMessage" type="id" />
     <item name="userMessageField" type="id" />
-    <item name="labelEnterSignalHere" type="id" />
-    <item name="confirmButtons" type="id" />
+    <item name="appLogo" type="id" />
+    <item name="contacts" type="id" />
+    <item name="backspace" type="id" />
     <item name="userInputField" type="id" />
-    <item name="sendMessage" type="id" />
-    <item name="touchBlocker" type="id" />
     <item name="touchBlockerLeft" type="id" />
     <item name="touchBlockerRight" type="id" />
+    <item name="sendMessage" type="id" />
     <item name="currentLetter" type="id" />
-    <item name="backspace" type="id" />
+    <item name="dictionary" type="id" />
 </resources>
