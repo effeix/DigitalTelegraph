@@ -44,23 +44,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <Button android:id="@id/confirmLetter"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_weight="0.4"
-        android:text="@string/confirmLetter" />
-
     <Button android:id="@id/backspace"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_weight="0.2"
+        android:layout_weight="1"
         android:text="@string/backspace"/>
 
-    <Button android:id="@id/confirmWord"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_weight="0.4"
-        android:text="@string/confirmWord"/>
 </LinearLayout>
 
 <LinearLayout

@@ -3,7 +3,6 @@ package br.edu.insper.digitaltelegraph;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -34,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
     EditText userMessageField;
     TextView currentLetter;
     TextView labelEnterSignalHere;
-    Button confirmLetter;
     Button backspace;
-    Button confirmWord;
     EditText userInputField;
     Button sendMessage;
     EditText touchBlockerLeft;
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Timer to keep track of interval between signals
-    public CountDownTimer countdown = new CountDownTimer(1500, 1000) {
+    public CountDownTimer countdownLetter = new CountDownTimer(1500, 1500) {
         @Override
         public void onTick(long millisUntilFinished) {
             //Do nothing because there is only one tick
@@ -60,8 +57,19 @@ public class MainActivity extends AppCompatActivity {
             Log.d("PRINTED_LETTER", letter);
             clickCounter = 0;
             currentNode = tree[0];
-            EditText msgField = userMessageField;
-            msgField.setText(msgField.getText() + letter);
+            userMessageField.setText(userMessageField.getText() + letter);
+        }
+    };
+
+    public CountDownTimer countdownWord = new CountDownTimer(3000,3000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+            //DO NOTHING
+        }
+
+        @Override
+        public void onFinish() {
+            userMessageField.setText(userMessageField.getText() + " ");
         }
     };
 
@@ -75,9 +83,7 @@ public class MainActivity extends AppCompatActivity {
         userMessageField = (EditText) findViewById(R.id.userMessageField);
         currentLetter = (TextView) findViewById(R.id.currentLetter);
         labelEnterSignalHere = (TextView) findViewById(R.id.labelEnterSignalHere);
-        confirmLetter = (Button) findViewById(R.id.confirmLetter);
         backspace = (Button) findViewById(R.id.backspace);
-        confirmWord = (Button) findViewById(R.id.confirmWord);
         userInputField = (EditText) findViewById(R.id.userInputField);
         sendMessage = (Button) findViewById(R.id.sendMessage);
         touchBlockerLeft = (EditText) findViewById(R.id.touchBlockerLeft);
@@ -89,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
         userMessageField.setEnabled(false); //Make user message read-only
         userMessageField.setText("");
         currentLetter.setText("Current Letter:   ");
-        confirmLetter.setEnabled(false);
-        confirmWord.setEnabled(false);
         sendMessage.setEnabled(false);
         touchBlockerLeft.setEnabled(false); //Make touchBlocker not accessible
         touchBlockerRight.setEnabled(false); //Make touchBlocker not accessible
@@ -107,21 +111,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(clickCounter == 0) {
-                    countdown.start();
+                    countdownLetter.start();
+                    countdownWord.start();
                     clickCounter++;
                     currentNode = currentNode.getLeftChild();
-                } else if(clickCounter >= 1){
-                    countdown.cancel();
-                    countdown.start();
+                } else if(clickCounter >= 1 && clickCounter <= 5){
+                    countdownLetter.cancel();
+                    countdownLetter.start();
+                    countdownWord.cancel();
+                    countdownWord.start();
                     if(currentNode.hasChildTree("left")) {
                         currentNode = currentNode.getLeftChild();
                     }
+                } else {
+                    toast.setText("This character does not exist!");
+                    toast.show();
                 }
 
                 userDesiredLetter = currentNode;
-
-                MainActivity.this.confirmLetter.setEnabled(true);
-                MainActivity.this.confirmWord.setEnabled(true);
             }
         });
 //
@@ -129,21 +136,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onLongClick(View v) {
                 if(clickCounter == 0) {
-                    countdown.start();
+                    countdownLetter.start();
+                    countdownWord.start();
                     clickCounter++;
                     currentNode = currentNode.getRightChild();
                 } else if(clickCounter >= 1){
-                    countdown.cancel();
-                    countdown.start();
+                    countdownLetter.cancel();
+                    countdownLetter.start();
+                    countdownWord.cancel();
+                    countdownWord.start();
                     if(currentNode.hasChildTree("right")) {
                         currentNode = currentNode.getRightChild();
                     }
                 }
 
                 userDesiredLetter = currentNode;
-
-                MainActivity.this.confirmLetter.setEnabled(true);
-                MainActivity.this.confirmWord.setEnabled(true);
                 return true;
             }
         });
@@ -162,8 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(msgField.getText().toString().trim().length() == 0) {
-                    MainActivity.this.confirmLetter.setEnabled(false);
-                    MainActivity.this.confirmWord.setEnabled(false);
                     MainActivity.this.sendMessage.setEnabled(false);
                 }
             }

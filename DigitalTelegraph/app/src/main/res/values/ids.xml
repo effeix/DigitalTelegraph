@@ -4,8 +4,6 @@
     <item name="userMessageField" type="id" />
     <item name="labelEnterSignalHere" type="id" />
     <item name="confirmButtons" type="id" />
-    <item name="confirmLetter" type="id" />
-    <item name="confirmWord" type="id" />
     <item name="userInputField" type="id" />
     <item name="sendMessage" type="id" />
     <item name="touchBlocker" type="id" />
