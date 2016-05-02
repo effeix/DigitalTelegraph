@@ -8,5 +8,8 @@
     <color name="userMessageFieldBG">#378ae1</color>
     <color name="userInputFieldTextColor">#ffffff</color>
     <color name="clickedColor">#424242</color>
+    <color name="helperDictItemTextColor">#000000</color>
+    <color name="spinnerBG">#bbbbbb</color>
+    <color name="helperDictItemBG">#ffffff</color>
 </resources>
 <!--#378ae1-->

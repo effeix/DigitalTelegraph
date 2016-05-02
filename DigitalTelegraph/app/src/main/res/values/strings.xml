@@ -4,9 +4,15 @@
     <string name="labelEnterSignalHere">Send signal (Tap: send DOT // Hold: send DASH):</string>
     <string name="touchHere">TOUCH HERE</string>
     <string name="sendMessage">Send Message</string>
-    <string name="currentLetter">Current Letter:    </string>
+    <string name="currentLetter">Current Letter:    None</string>
     <string name="backspace">Erase</string>
-    <string name="contacts">Contacts</string>
+    <string name="send">Choose phone and send</string>
     <string name="userInputField">TAP HERE</string>
-    <string name="dictionary">Dictionary</string>
+    <string name="back">Cancel</string>
+    <string name="dictionaryBtn">DICTIONARY</string>
+    <string name="labelDictionary">Dictionary:</string>
+    <string name="cancel">Cancel</string>
+    <string name="sendFinal">Send</string>
+    <string name="contacts">Contacts</string>
+    <string name="labelPhoneNumber">Telephone</string>
 </resources>

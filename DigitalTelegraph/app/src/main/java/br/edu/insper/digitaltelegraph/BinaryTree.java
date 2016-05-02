@@ -3,14 +3,15 @@ package br.edu.insper.digitaltelegraph;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class BinaryTree {
 
     private final static int NUM_TREES = 40;
     private Node[] nodes;
+    MorseCode morsecode = new MorseCode();
 
     public BinaryTree() {
 
@@ -68,24 +69,30 @@ public class BinaryTree {
         return this.nodes;
     }
 
-    public List<String> BFS() {
-        List<String> characters = new ArrayList<>();
+    public ArrayList<String> BFS() {
+        ArrayList<String> characters = new ArrayList<>();
         Queue<Node> queue = new LinkedList<Node>();
         queue.add(nodes[0]);
 
         while(!queue.isEmpty()) {
             Node node = (Node) queue.remove();
-            characters.add(node.getLetter());
 
             if(node.hasChildTree("left")) {
                 queue.add(node.getLeftChild());
+                String character = node.getLeftChild().getLetter();
+                String code = morsecode.getMorseCodeFromLetter(character);
+                characters.add(character + "  " + code);
             }
 
             if(node.hasChildTree("right")) {
                 queue.add(node.getRightChild());
+                String character = node.getRightChild().getLetter();
+                String code = morsecode.getMorseCodeFromLetter(character);
+                characters.add(character + "  " + code);
             }
         }
 
+        characters.removeAll(Arrays.asList("  "+null));
         return characters;
     }
 }

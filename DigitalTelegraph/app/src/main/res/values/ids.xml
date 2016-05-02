@@ -3,12 +3,20 @@
     <item name="labelYourMessage" type="id" />
     <item name="userMessageField" type="id" />
     <item name="appLogo" type="id" />
-    <item name="contacts" type="id" />
     <item name="backspace" type="id" />
     <item name="userInputField" type="id" />
     <item name="touchBlockerLeft" type="id" />
     <item name="touchBlockerRight" type="id" />
     <item name="sendMessage" type="id" />
     <item name="currentLetter" type="id" />
+    <item name="send" type="id" />
+    <item name="back" type="id" />
+    <item name="dictionaryBtn" type="id" />
+    <item name="helperDictionary" type="id" />
     <item name="dictionary" type="id" />
+    <item name="cancel" type="id" />
+    <item name="contacts" type="id" />
+    <item name="sendFinal" type="id" />
+    <item name="chooseContactField" type="id" />
+    <item name="labelPhoneNumber" type="id" />
 </resources>
