@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bodyBG">#252424</color>
+    <color name="labelYourMessage">#ffffff</color>
+    <color name="userMessageFieldBG">#378ae1</color>
+    <color name="userInputFieldTextColor">#ffffff</color>
+    <color name="clickedColor">#424242</color>
+    <color name="helperDictItemTextColor">#000000</color>
+    <color name="spinnerBG">#bbbbbb</color>
+    <color name="helperDictItemBG">#ffffff</color>
+</resources>
+<!--#378ae1-->
